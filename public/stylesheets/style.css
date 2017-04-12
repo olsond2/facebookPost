@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+img {
+	width: 50px;
+	margin: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+.talk {
+padding: 20px;
+border: 1px solid red;
+margin: 20 auto 10 auto;
+border-radius: 20px;
+background-color: rgb(220,220,255);
+}
+input {
+margin: 10px;
+float: left;
+}
+#submitButton {
+margin-left: 10px;
+margin-top: 10px;
+clear: both;
+background-color: rgb(200,200,255);
+}

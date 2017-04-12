@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Comments</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+  <link style="text/css" rel="stylesheet" href="stylesheets/style.css">
+
+</head>
+<body ng-app="talk" ng-controller="MainCtrl">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="page-header"> 
+  <h1>General Conference Talks </h1>
+</div>
+
+  <form ng-submit="addTalk()" style = "margin-top30px;">
+    <input type="text" ng-model="sessionContent" placeholder="session"></input>
+    <input type="text" ng-model="urlContent" placeholder="picture URL"></input>
+    <input type="text" ng-model="speakerContent" placeholder="speaker"></input>
+    <input type="text" ng-model="formContent" placeholder="title"></input>
+    <button type="submit" id="submitButton">Add Talk</button><br>
+  </form>
+  <div>
+    {{test}}
+  </div>
+  <div class="talk" ng-repeat="talk in talks | orderBy: ['-upvotes','session']">
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(talk)"></span>
+    <span>{{talk.session}}</span>
+    <span><img ng-src="{{talk.url}}"</span>
+    <span>{{talk.speaker}}</span>&nbsp;*&nbsp;
+    <span>{{talk.title}}</span> - 
+    <span> upvotes: {{talk.upvotes}}</span>
+    <span class="glyphicon glyphicon-remove" ng-click="delete(talk)"></span>
+  </div>
+</div>
+</div>
+</body>
+</html>
