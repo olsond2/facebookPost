@@ -12,16 +12,9 @@
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
 <div class="page-header"> 
-  <h1>General Conference Talks </h1>
+  <h1>Facebook Comments</h1>
 </div>
 
-  <form ng-submit="addTalk()" style = "margin-top30px;">
-    <input type="text" ng-model="sessionContent" placeholder="session"></input>
-    <input type="text" ng-model="urlContent" placeholder="picture URL"></input>
-    <input type="text" ng-model="speakerContent" placeholder="speaker"></input>
-    <input type="text" ng-model="formContent" placeholder="title"></input>
-    <button type="submit" id="submitButton">Add Talk</button><br>
-  </form>
   <div>
     {{test}}
   </div>
@@ -34,6 +27,10 @@
     <span> upvotes: {{talk.upvotes}}</span>
     <span class="glyphicon glyphicon-remove" ng-click="delete(talk)"></span>
   </div>
+<form ng-submit="addTalk()" style="margin-top: 30px;">
+<input type="text" ng-model="formContent" placeholder="What's on your mind..."></input>
+  <button type="submit" id="submitButton">Post</button><br>
+</form>
 </div>
 </div>
 </body>
