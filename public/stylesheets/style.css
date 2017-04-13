@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -11,6 +11,11 @@ img {
 	margin: 5px;
 	border: 1px solid black;
 	border-radius: 5px;
+}
+h1 {
+clear: both;
+margin-top: 100px;
+text-align: center;
 }
 .talk {
 padding: 20px;
@@ -28,4 +33,11 @@ margin-left: 10px;
 margin-top: 10px;
 clear: both;
 background-color: rgb(200,200,255);
+}
+#navBar {
+background-color: #3b5998;
+height: 80px;
+width: 100%;
+position: fixed;
+top: 0px;
 }
