@@ -24,7 +24,7 @@ margin: 20 auto 10 auto;
 border-radius: 20px;
 background-color: rgb(220,220,255);
 }
-input {
+#commentInput {
 margin: 10px;
 float: left;
 }
@@ -38,6 +38,11 @@ background-color: rgb(200,200,255);
 background-color: #3b5998;
 height: 80px;
 width: 100%;
-position: fixed;
+position: relative;
 top: 0px;
+}
+#loginDrop-down {
+    position: relative;
+    height: 150px;
+    background-color: #8b9dc3;
 }
