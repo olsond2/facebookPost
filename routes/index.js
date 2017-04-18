@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Talk = mongoose.model('Talk');
+var path = require("path");
+
+router.get('/login', function(req, res, next) {
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname +'/../public/auth.html'));
+});
 
 router.get('/talks', function(req, res, next) {
   Talk.find(function(err, talks){
