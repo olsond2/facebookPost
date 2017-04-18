@@ -32,6 +32,8 @@
     </div>
     <div ng-show="firebaseUser">
         <p style="color:white; padding: 10px; float: left;">Hello, {{ firebaseUser.displayName }}</p>
+        <br><br><br>
+        <img ng-src="{{firebaseUser.photoURL}}" id="mainPhoto"/>
         <a style="margin:10px; float: right" class="btn btn-default pull-right" ng-click="logout()">Sign Out</a>
     </div>
 </div>
