@@ -56,13 +56,13 @@
           
           <div class="comment" ng-repeat="comment in comments | orderBy: '-time'">
               <div class="upperPart">
-                  <img ng-src="{{firebaseUser.photoURL}}" class="commentPhoto"/>
+                  <img ng-src="{{comment.photoURL}}" class="commentPhoto"/>
                   <span class="userName">
-                      {{firebaseUser.displayName}}<br>
+                      {{comment.name}}<br>
                       <span class="timeStamp">
                       {{Math.round((currentTime-comment.time)/1000/60)}} mins
                       </span>
-                      <span class="userEmail">{{firebaseUser.email}}</span>
+                      <span class="userEmail">{{comment.email}}</span>
                       
                   </span>
               </div>
@@ -71,7 +71,7 @@
               </div>
               <div class="lowerPart">
                   <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span><span class="like">Like</span><span class="likedBy">(Liked by {{comment.upvotes}})</span>
-                     <div class="deleteSection">
+                     <div ng-if="comment.email == firebaseUser.email" class="deleteSection">
                   <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span><span class="deleted">Delete</span>
                       </div>
               </div>
