@@ -65,7 +65,8 @@ top: 0px;
     height: auto;
     padding: 10px;
     font-size: 1.5em;
-    margin: 5px auto;
+    margin: 15px auto;
+    box-shadow: 0px 1px .5px black;
 }
 .upperPart {
     width: 100%;
@@ -76,11 +77,46 @@ top: 0px;
     clear: left;
 }
 .lowerPart {
-    border-top: 1px solid #8b9dc3;
-    border-bottom: 1px solid #8b9dc3;
+    border-top: 1px solid #dfe3ee;
+    border-bottom: 1px solid #dfe3ee;
     padding: 5px;
 }
-
-
-
-
+.timeStamp {
+    font-size: .6em;
+    padding-left: 20px;
+    color: #333;
+}
+.glyphicon{
+    font-size: .9em;
+}
+.like{
+    font-size: .9em;
+    padding-left: 8px;
+    padding-bottom: 10px;
+}
+.deleted {
+    font-size: .9em;
+    padding-left: 8px;
+    padding-bottom: 10px;
+}
+.deleteSection {
+    float: right
+}
+.likedBy {
+    padding-left: 10px;
+    font-size: .6em;
+}
+#postForm {
+    margin-top: 30px;
+    margin-left: 10%;
+    font-size: 1.7em;
+    margin-bottom: 70px;
+}
+#notLoggedIn {
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 4em;
+    margin-top: 100px;
+    color: #3b5998;
+}
