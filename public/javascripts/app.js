@@ -50,13 +50,12 @@ app.controller('MainCtrl', [
     }
 
     $scope.comments = [];
-    $scope.addTalk = function() {
+ /*   $scope.addTalk = function() {
       //var newcomment = {title:$scope.formContent,upvotes:0};
       //$scope.formContent='';
       //$http.post('/comments', newcomment).success(function(data){
       //  $scope.comments.push(data);
       //});
-
       if($scope.formContent === '') { return; }
       $scope.create({
         title: $scope.formContent,
@@ -69,8 +68,22 @@ app.controller('MainCtrl', [
     	$scope.sessionContent = '';
     	$scope.speakerContent = '';
     	$scope.urlContent = '';
-
     };
+  */    
+    $scope.addComment = function() {
+        if($scope.formContent == '') {
+            return;
+        }
+        $scope.create({
+            postedComment: $scope.formContent,
+            upvotes: 0,
+            email: $scope.firebaseUser.email,
+            name: $scope.firebaseUser.displayName,
+            photoURL: $scope.firebaseUser.photoURL,
+        });
+        console.log("hello"+$scope.formContent);
+        $scope.formContent = '';
+    }
     
     $scope.create = function(comment) {
     return $http.post('/comments', comment).success(function(data){

@@ -50,7 +50,9 @@
           </div>
           <div class="comment" ng-repeat="comment in comments | orderBy: ['-upvotes']">
             <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-
+              UPVOTES:({{comment.upvotes}}) -COMMENT: {{comment.postedComment}}DISPLAY NAME:{{firebaseUser.displayName}}
+              EMAIL: {{firebaseUser.email}}
+              PHOTOURL: {{firebaseUser.photoURL}}
             <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
           </div>
           <form ng-submit="addComment()" style="margin-top: 30px;">
