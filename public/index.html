@@ -3,41 +3,62 @@
   <title>Facebook Comments</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-  <script src="javascripts/app.js"></script>
-  <link style="text/css" rel="stylesheet" href="stylesheets/style.css">
 
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  <!-- Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+  <link style="text/css" rel="stylesheet" href="stylesheets/style.css">
+  <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCbNpiyByP73FQHJjq9lIJqFo0z4eykPlE",
+        authDomain: "full-stack-cs201.firebaseapp.com",
+        databaseURL: "https://full-stack-cs201.firebaseio.com",
+        projectId: "full-stack-cs201",
+        storageBucket: "full-stack-cs201.appspot.com",
+        messagingSenderId: "56236883669"
+      };
+      firebase.initializeApp(config);
+  </script>
+  <script src="javascripts/app.js"></script>
 </head>
-<body ng-app="talk" ng-controller="MainCtrl">
+<body id="app" ng-app="comment" ng-controller="MainCtrl">
 
 <div id="navBar">
-    <a href="/login" class="btn btn-default pull-right" style="margin:10px;">Login</a>
+    <div ng-hide="firebaseUser">
+       <a ng-click="login()" class="btn btn-default pull-right" style="margin:10px;">Login</a>
+    </div>
+    <div ng-show="firebaseUser">
+        <p style="color:white;">Hello, {{ firebaseUser.displayName }}</p>
+        <a style="margin:10px;" class="btn btn-default pull-right" ng-click="logout()">Sign Out</a>
+    </div>
 </div>
 <!-- <div id="loginDrop-down"><br>
 <br>
 </div> -->
 <div class="row">
-<div class="col-md-6 col-md-offset-3">
-<div class="page-header"> 
-  <h1>Facebook Comments</h1>
-</div>
+  <div class="col-md-6 col-md-offset-3">
+      <div class="page-header"> 
+        <h1>Facebook Comments</h1>
+      </div>
+      <div ng-show="firebaseUser">
 
-  <div>
-    {{test}}
+          <div>
+            {{test}}
+
+          </div>
+          <div class="comment" ng-repeat="comment in comments | orderBy: ['-upvotes']">
+            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+
+            <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
+          </div>
+          <form ng-submit="addComment()" style="margin-top: 30px;">
+              <input type="text" ng-model="formContent" placeholder="What's on your mind..." id="commentInput"></input>
+              <button type="submit" id="submitButton">Post</button><br>
+          </form>
+        </div>
   </div>
-  <div class="talk" ng-repeat="talk in talks | orderBy: ['-upvotes','session']">
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(talk)"></span>
-    <span>{{talk.session}}</span>
-    <span><img ng-src="{{talk.url}}"</span>
-    <span>{{talk.speaker}}</span>&nbsp;*&nbsp;
-    <span>{{talk.title}}</span> - 
-    <span> upvotes: {{talk.upvotes}}</span>
-    <span class="glyphicon glyphicon-remove" ng-click="delete(talk)"></span>
-  </div>
-<form ng-submit="addTalk()" style="margin-top: 30px;">
-<input type="text" ng-model="formContent" placeholder="What's on your mind..." id="commentInput"></input>
-  <button type="submit" id="submitButton">Post</button><br>
-</form>
-</div>
 </div>
 </body>
 </html>

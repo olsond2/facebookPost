@@ -1,52 +1,47 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Talk = mongoose.model('Talk');
-var path = require("path");
+var Talk = mongoose.model('Comment');
 
-router.get('/login', function(req, res, next) {
-  console.log(__dirname);
-  res.sendFile(path.join(__dirname +'/../public/auth.html'));
-});
 
-router.get('/talks', function(req, res, next) {
-  Talk.find(function(err, talks){
+router.get('/comments', function(req, res, next) {
+  Talk.find(function(err, comments){
     if(err){ return next(err); }
-    res.json(talks);
+    res.json(comments);
   });
 });
 
-router.post('/talks', function(req, res, next) {
-  var talk = new Talk(req.body);
-  talk.save(function(err, talk){
+router.post('/comments', function(req, res, next) {
+  var comment = new Talk(req.body);
+  comment.save(function(err, comment){
     if(err){ return next(err); }
-    res.json(talk);
+    res.json(comment);
   });
 });
 
-router.param('talk', function(req, res, next, id) {
+router.param('comment', function(req, res, next, id) {
   var query = Talk.findById(id);
-  query.exec(function (err, talk){
+  query.exec(function (err, comment){
     if (err) { return next(err); }
-    if (!talk) { return next(new Error("can't find talk")); }
-    req.talk = talk;
+    if (!comment) { return next(new Error("can't find comment")); }
+    req.comment = comment;
     return next();
   });
 });
 
-router.get('/talks/:talk', function(req, res) {
-  res.json(req.talk);
+router.get('/comments/:comment', function(req, res) {
+  res.json(req.comment);
 });
 
-router.put('/talks/:talk/upvote', function(req, res, next) {
-  req.talk.upvote(function(err, talk){
+router.put('/comments/:comment/upvote', function(req, res, next) {
+  req.comment.upvote(function(err, comment){
     if (err) { return next(err); }
-    res.json(talk);
+    res.json(comment);
   });
 });
-router.delete('/talks/:talk', function(req, res) {
+router.delete('/comments/:comment', function(req, res) {
   console.log("in Delete");
-  req.talk.remove();
-  res.json(req.talk);
+  req.comment.remove();
+  res.json(req.comment);
 });
 module.exports = router;
