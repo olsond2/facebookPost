@@ -1,16 +1,28 @@
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #f7f7f7;
 }
 
 a {
   color: #00B7FF;
 }
-img {
+.commentPhoto {
 	width: 50px;
 	margin: 5px;
-	border: 1px solid black;
-	border-radius: 5px;
+	border-radius: 1px;
+    float: left;
+}
+.userName {
+    font-size: 1em;
+    color: #3b5998;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.userEmail {
+    font-size: .5em;
+    padding-left: 20px;
+    color: black;
 }
 h1 {
 clear: both;
@@ -46,3 +58,29 @@ top: 0px;
     height: 150px;
     background-color: #8b9dc3;
 }
+.comment {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #dfe3ee;
+    height: auto;
+    padding: 10px;
+    font-size: 1.5em;
+    margin: 5px auto;
+}
+.upperPart {
+    width: 100%;
+    padding: 5px;
+}
+.middlePart {
+    margin: 30px 0px 30px 8px;
+    clear: left;
+}
+.lowerPart {
+    border-top: 1px solid #8b9dc3;
+    border-bottom: 1px solid #8b9dc3;
+    padding: 5px;
+}
+
+
+
+

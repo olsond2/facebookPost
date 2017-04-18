@@ -80,6 +80,7 @@ app.controller('MainCtrl', [
             email: $scope.firebaseUser.email,
             name: $scope.firebaseUser.displayName,
             photoURL: $scope.firebaseUser.photoURL,
+            time: 0,
         });
         console.log("hello"+$scope.formContent);
         $scope.formContent = '';
